@@ -1,0 +1,92 @@
+Rails commands
+--------------------------------------------------------------------------------
+rails new (appname)
+bundle install
+rails server
+rails generate controller Pages
+rails generate model Message
+rake db:migrate
+rake db:seed
+
+--------------------------------------------------------------------------------
+Rails notes
+--------------------------------------------------------------------------------
+http://localhost:8000 
+inside config > routes.rb:  get 'welcome' => 'pages#home'
+inside app/views/pages/home.html.erb:
+
+<div class="main">
+  <div class="container">
+    <h1>Hello my name is Romina</h1>
+    <p>I make Rails apps.</p>
+  </div>
+</div>
+
+app/assets/stylesheets/pages.css.scss. see css style sheets
+
+inside db/migrate/create messages file> add
+
+	t.text :content
+
+inside routes.rb 
+
+	Rails.application.routes.draw do
+  	get '/messages' => 'messages#index'
+
+inside app>controllers>messages_controller
+
+	def index
+  	@message = message.all
+	end
+
+--------------------------------------------------------------------------------
+RAILS APP FILE TREE:
+--------------------------------------------------------------------------------
+app
+	assets
+	controllers
+	helpers
+	mailers
+	models
+	views
+bin
+	---FILES--
+	bundle
+	rails
+	rake
+	spring	
+config	
+	environments
+	initializers
+	locales
+db
+	migrate
+	--FILES--
+	development.sqlite3
+	seeds.rb
+lib
+	assets
+	tasks
+log
+	--FILES--
+	development.log
+public
+	--FILES--
+	404.html
+	422.html
+	500.html
+	favicon.ico
+	robots.txt
+tmp
+	cache
+	pids
+	sessions
+	sockets
+--FILES---
+Gemfile
+Gemfile.lock
+README.rdoc
+Rakefile
+config.ru
+Code Editor
+Run
